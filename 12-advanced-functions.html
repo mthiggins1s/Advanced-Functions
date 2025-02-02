@@ -6,7 +6,21 @@
     <title>Advanced Functions</title>
 </head>
 <body>
-    <script>
+    <button onclick="" class="js-button">Click</button>
+    <script> // this is how to find the event: we have onclick (CLICK is the event)
+        const buttonElement = document.querySelector('.js-button'); // we will add an .addEventListener(); which lets us run some code when we interact with the element.
+
+        const eventListener = () => {
+            console.log('click');
+        }
+        buttonElement.addEventListener('click', eventListener);
+        buttonElement.removeEventListener('click', eventListener); // also has two parameters; event and function we want to remove.
+        
+        buttonElement.addEventListener('click', () => {
+            console.log('click2');
+        }); // we can also remove an event listener with .removeEventListener()
+
+        // this has two parameters; event (what type of interaction we are listening for. the Second parameter is the function we WANT to run.)
         /*
         function greeting() {
             console.log('hello'); // we can read this easier, and we can also "hoist" this code, which means we can call this function before we create it in the code; it can be called in any order.
@@ -56,11 +70,12 @@
 
         console.log('next line 2');
         */
+       /*
        [
         'make dinner',
         'wash dishes',
         'watch youtube'
-       ].forEach(function(value, index) {
+       ].forEach((value, index) => {
         if(value === 'wash dishes') {
             return;
         }
@@ -68,6 +83,37 @@
         console.log(index);
         console.log(value);
        }); // allows us to LOOP through the array; and for each value, it will SAVE the value in the parameter and run the function. This also has two parameters; the function and the index.
+
+       const regularFunction = function(param, param2) {
+        console.log('hello');
+        return 5;
+       }
+
+       const arrowFunction = (param, param2) => { // arrow function; works the same as a regular function.
+        console.log('hello');
+        return 5;
+       };
+       arrowFunction();
+
+       // arrowFunctions have shortcuts.
+
+       const oneParam = (param) => {
+        console.log(param + 1);
+       };
+       oneParam(2);
+
+       const oneLine = () => 2 + 3; // if we have an arrow, itll automatically return the result to the right of it.
+       console.log(oneLine());
+
+       const object2 = {
+        method: () => {
+
+        },
+        method() { // shorthand method syntax
+
+        }
+       };
+       */
     </script>
 </body>
 </html>
